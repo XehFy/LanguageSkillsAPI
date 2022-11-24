@@ -5,10 +5,9 @@ namespace LanguageSkillsAPI.Data.Entities
 {
     public class CardTranslation
     {
-        public int Id;
-        public int OriginalId;
+        public int Id { get; set; }
         public string? ExampleTranslation { get; set; }
-        public languages Language;
-        public string? Translate;
+        public Languages Language { get; set; }
+        public string? Translate { get; set; }
     }
 }

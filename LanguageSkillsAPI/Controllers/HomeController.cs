@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using LanguageSkillsAPI.Data.Entities;
+using Microsoft.AspNetCore.Mvc;
 
 namespace LanguageSkillsAPI.Controllers
 {
@@ -8,5 +9,7 @@ namespace LanguageSkillsAPI.Controllers
         {
             return View();
         }
+
+        
     }
 }

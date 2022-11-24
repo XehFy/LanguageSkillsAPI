@@ -1,6 +1,6 @@
 ﻿namespace LanguageSkillsAPI.Data.Infrastructure.Enums
 {
-    public enum languages : byte
+    public enum Languages : byte
     {
         Afrikaans = 1,
         Albanian = 2,
