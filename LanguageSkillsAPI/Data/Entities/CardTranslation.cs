@@ -7,7 +7,7 @@ namespace LanguageSkillsAPI.Data.Entities
     {
         public int Id { get; set; }
         public string? ExampleTranslation { get; set; }
-        public Languages Language { get; set; }
+        public string Language { get; set; }    
         public string? Translate { get; set; }
     }
 }

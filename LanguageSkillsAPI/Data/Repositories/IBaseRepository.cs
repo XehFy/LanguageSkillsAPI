@@ -6,7 +6,7 @@ namespace LanguageSkillsAPI.Data.Repositories
     {
         Task<T> GetById(int id);
         Task<T> FirstOrDefault(Expression<Func<T, bool>> predicate);
-
+        void AddList(List<T> list);
         Task Add(T entity);
         Task Update(T entity);
         Task Remove(T entity);

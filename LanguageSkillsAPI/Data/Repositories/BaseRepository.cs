@@ -20,6 +20,15 @@ namespace LanguageSkillsAPI.Data.Repositories
             await Context.SaveChangesAsync();
         }
 
+        public void AddList(List<T> list)
+        {
+            foreach (T entity in list)
+            {
+                Context.Set<T>().Add(entity);
+            }
+            Context.SaveChanges();
+        }
+
         public async Task<T> FirstOrDefault(Expression<Func<T, bool>> predicate)
         {
             return await Context.Set<T>().FirstOrDefaultAsync(predicate);
@@ -53,5 +62,6 @@ namespace LanguageSkillsAPI.Data.Repositories
         }
 
         #endregion 
+
     }
 }

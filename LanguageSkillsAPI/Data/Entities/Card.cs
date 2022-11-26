@@ -8,9 +8,9 @@ namespace LanguageSkillsAPI.Data.Entities
         public string? Word { get; set; }
         public string? Example { get; set; }
         public int Rating { get; set; }
-        public Languages language { get; set; }
+        public string Language { get; set; }
         public bool IsActive { get; set; }
 
-        public ICollection<CardTranslation> cardTranslations { get; set; }
+        public ICollection<CardTranslation>? cardTranslations { get; set; }
     }
 }

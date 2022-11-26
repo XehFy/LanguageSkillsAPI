@@ -135,6 +135,5 @@
         Yiddish = 131,
         Yoruba = 132,
         Zulu = 133
-
     }
 }

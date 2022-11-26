@@ -1,5 +1,6 @@
 ﻿using LanguageSkillsAPI.Data.Entities;
 using LanguageSkillsAPI.Data.Repositories;
+using LanguageSkillsAPI.Infrastructure.GoogleTranslation;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LanguageSkillsAPI.Controllers
@@ -29,10 +30,12 @@ namespace LanguageSkillsAPI.Controllers
 
         public IActionResult CreateCards(List<Card> cardsAdd)
         {
-            foreach (var card in cardsAdd)
+            var tranlator = new GoogleTranslator();
+            foreach (Card card in cardsAdd)
             {
-                CardRepository.Add(card);
+                tranlator.Translate(card);
             }
+            CardRepository.AddList(cardsAdd);
             return Ok();
         }
 
