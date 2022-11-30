@@ -1,7 +1,10 @@
 ﻿using LanguageSkillsAPI.Data.Entities;
 using LanguageSkillsAPI.Data.Repositories;
-using LanguageSkillsAPI.Infrastructure.GoogleTranslation;
+using LanguageSkillsAPI.Infrastructure.TranslationAPI;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.JSInterop;
+using Microsoft.AspNetCore.NodeServices;
+using Jering.Javascript.NodeJS;
 
 namespace LanguageSkillsAPI.Controllers
 {
@@ -11,9 +14,11 @@ namespace LanguageSkillsAPI.Controllers
     {
         private ICardRepository CardRepository { get; set; }
 
-        public CardController(ICardRepository cardRepository)
+        INodeJSService NodeServices;
+        public CardController(ICardRepository cardRepository, INodeJSService nodeServices)
         {
             CardRepository = cardRepository;
+            NodeServices = nodeServices;
         }
 
         [HttpGet]
@@ -28,15 +33,14 @@ namespace LanguageSkillsAPI.Controllers
         [HttpPost]
         [Route("/CreateCards")]
 
-        public IActionResult CreateCards(List<Card> cardsAdd)
+        public async Task CreateCards(List<Card> cardsAdd)
         {
-            var tranlator = new GoogleTranslator();
+            GoogleDictionary translator = new GoogleDictionary(NodeServices);
             foreach (Card card in cardsAdd)
             {
-                tranlator.Translate(card);
+                await translator.Translate(card.Word, "en", "ru");
             }
             CardRepository.AddList(cardsAdd);
-            return Ok();
         }
 
                       

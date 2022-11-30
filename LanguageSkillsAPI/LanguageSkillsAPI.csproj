@@ -8,14 +8,23 @@
 
   <ItemGroup>
     <PackageReference Include="Google.Cloud.Translation.V2" Version="3.1.0" />
+    <PackageReference Include="Jering.Javascript.NodeJS" Version="6.3.1" />
+    <PackageReference Include="Jurassic" Version="3.2.6" />
+    <PackageReference Include="Microsoft.AspNetCore.NodeServices" Version="3.1.31" />
+    <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="6.0.11" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.JSInterop" Version="6.0.11" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="7.0.0" />
     <PackageReference Include="Npgsql.Json.NET" Version="7.0.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
     <PackageReference Include="YandexLinguistics.NET" Version="2.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Infrastructure\TranslationAPI\JsGoogleAPI\" />
   </ItemGroup>
 
 </Project>
