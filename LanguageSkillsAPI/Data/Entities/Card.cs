@@ -1,4 +1,4 @@
-﻿using LanguageSkillsAPI.Data.Infrastructure.Enums;
+﻿
 
 namespace LanguageSkillsAPI.Data.Entities
 {
@@ -9,7 +9,8 @@ namespace LanguageSkillsAPI.Data.Entities
         public string? Example { get; set; }
         public int Rating { get; set; }
         public string Language { get; set; }
-        public bool IsActive { get; set; }
+        public bool IsVerified { get; set; }
+        public int? UserRating { get; set; }
 
         public ICollection<CardTranslation>? cardTranslations { get; set; }
     }

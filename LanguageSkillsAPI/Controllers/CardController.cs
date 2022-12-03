@@ -33,13 +33,11 @@ namespace LanguageSkillsAPI.Controllers
         [HttpPost]
         [Route("/CreateCards")]
 
-        public async Task CreateCards(List<Card> cardsAdd)
+        public async Task CreateCards(List<Card> cardsAdd, string targerLang)
         {
-            GoogleDictionary translator = new GoogleDictionary(NodeServices);
-            foreach (Card card in cardsAdd)
-            {
-                await translator.Translate(card.Word, "en", "ru");
-            }
+            var translator = new Translator(NodeServices);
+            translator.Translate(cardsAdd, targerLang);
+
             CardRepository.AddList(cardsAdd);
         }
 

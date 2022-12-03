@@ -1,7 +1,7 @@
 ﻿using Google.Cloud.Translation.V2;
 using LanguageSkillsAPI.Data.Entities;
 
-namespace LanguageSkillsAPI.Infrastructure.GoogleTranslation
+namespace LanguageSkillsAPI.Infrastructure.TranslationAPI
 {
     public class GoogleTranslator
     {
@@ -11,6 +11,12 @@ namespace LanguageSkillsAPI.Infrastructure.GoogleTranslation
             var response = client.TranslateText(card.Word, LanguageCodes.Russian , LanguageCodes.English);
             card.cardTranslations.Add(new CardTranslation
             { Translate = response.TranslatedText });
+
+            var langs = client.ListLanguages();
+            foreach (var language in langs)
+            {
+                Console.WriteLine($"{language.Code} {language.Name}");
+            }
         }
     }
 }

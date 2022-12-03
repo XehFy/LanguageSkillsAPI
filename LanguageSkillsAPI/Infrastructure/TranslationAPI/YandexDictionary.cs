@@ -1,13 +1,13 @@
 ﻿using YandexLinguistics.NET.Dictionary;
 using LanguageSkillsAPI.Data.Entities;
 
-namespace LanguageSkillsAPI.Infrastructure.GoogleTranslation
+namespace LanguageSkillsAPI.Infrastructure.TranslationAPI
 {
     public class YandexDictionary
     {
         public string key = "dict.1.1.20221125T183730Z.1ff12fda3483c48f.527ce68c1d508b6510c60a1df0df9d0460492081";
 
-        public async void GetTranslations(Card card)
+        public async void GetTranslations(Card card, string targetLang)
         {
 
             var Dictionary = new DictionaryService(key);
@@ -25,7 +25,7 @@ namespace LanguageSkillsAPI.Infrastructure.GoogleTranslation
                 }
             }
             var translateCard = new CardTranslation {
-                Language = YandexLinguistics.NET.Language.Ru.ToString(),
+                Language = targetLang,
                 Translate = translate };
             card.cardTranslations.Add(translateCard);
         }
